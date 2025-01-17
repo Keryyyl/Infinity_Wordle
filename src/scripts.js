@@ -20,6 +20,11 @@ let lightModeToggled = localStorage.getItem('lightModeToggled');
 const lightModeToggle = document.getElementById('slonce');
 const darkModeToggle = document.getElementById('ksiezyc')
 
+if(lightModeToggle != "enabled" && lightModeToggle != "disabled"){
+    darkModeToggle.style.display="inline-block";
+    lightModeToggle.style.display="none";
+}
+
 if(lightModeToggled == "enabled"){
     document.body.classList.add('lightMode');
     darkModeToggle.style.display="none";
