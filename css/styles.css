@@ -1,0 +1,301 @@
+:root {
+    --bg: rgb(20, 20, 20);
+    --border: rgb(100, 100, 100);
+    --borderSelected: rgb(170, 170, 170);
+    --font: white;
+    --color: white;
+    --box: 80px;
+    --green: rgb(50, 100, 0);
+    --yellow: rgba(245, 255, 101, 0.518);
+    --grey: rgb(45, 45, 45);
+    color: white;
+}
+
+.lightMode {
+    --bg: rgb(200, 200, 200);
+    --border: rgb(255, 255, 255);
+    --borderSelected: rgb(70, 70, 70);
+    --font: white;
+    --color: white;
+    --box: 80px;
+    --green: rgb(100, 200, 0);
+    --yellow: rgba(245, 255, 101, 0.518);
+    --grey: rgb(45, 45, 45);
+    color: black;
+}
+   
+* {
+    margin: 0px;
+    font-family: Fira Code, Helvetica;
+
+}
+
+
+body {
+    background-color: var(--bg);
+    text-align: center;
+    justify-content: center;
+}
+
+#maxPage {
+    height: 250px;
+    width: 100%;
+    display: block;
+    bottom: 0px;
+    left: 0px;
+}
+
+header {
+    color: var(--color);
+    margin-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 5px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+}
+
+.titleText {
+    font-size: 40px;
+    letter-spacing: 3px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.addons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: absolute;
+    right: 50px;
+}
+
+.material-icons {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+input {
+    opacity: 0;
+    text-transform: lowercase;
+    position: fixed;
+}
+
+#wrapper {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+
+}
+
+.game_rows {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    margin-top: 10px;
+
+}
+
+.game_rows:nth-child(4n+1) {
+    margin-left: 0px;
+}
+
+.row {
+display: flex;
+text-align: center;
+}
+
+.row-letter{
+    border: 1px solid var(--border);
+    width: var(--box);
+    height: var(--box);
+    display: grid;
+    align-items: center;
+    text-align: center;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+}
+
+.done-row > .row-letter:nth-child(2){
+    animation-delay: 0.2s;
+}
+.done-row > .row-letter:nth-child(3){
+    animation-delay: 0.4s;
+}
+.done-row > .row-letter:nth-child(4){
+    animation-delay: 0.6s;
+}
+.done-row > .row-letter:nth-child(5){
+    animation-delay: 0.8s;
+}
+
+.active-row > .typed {
+    animation: bounce 0.2s ease-in-out forwards;
+}
+
+.green {
+    --background-color: var(--green);
+    --border-color: var(--green);
+    color: var(--color);
+    animation: flip 1s ease forwards;
+}
+
+.yellow {
+    --background-color: var(--yellow);
+    --border-color: var(--yellow);
+    color: var(--color);
+    animation: flip 1s ease forwards;
+}
+
+.grey {
+    --background-color: var(--grey);
+    --border-color: var(--grey);
+    color: var(--color);
+    animation: flip 1s ease forwards;
+
+}
+
+/* Keyboard */
+
+#keyboard {
+    z-index: 9;
+    margin: 1rem 0;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    bottom: 3rem;
+}
+    
+#keyboard div {
+    display: flex;
+}
+    
+#midKeyboard {
+    margin: 0.5rem 0;
+}
+    
+.keyboard-button {
+    position: relative;
+    background: #333;
+    text-align: center;
+    color: #eee;
+    float: left;
+    border-radius: 0.3em;
+    margin: 0.2em;
+    padding: 0.2em;
+    width: 45px;
+    height: 45px;
+    box-sizing: border-box;
+    border: 1px solid #444;
+    box-shadow: 0 0.2em 0 0.05em #222;
+    border-bottom-color: #555;
+}
+.keyboard-button:active, .keyboard-button[data-pressed] {
+    background: #2a2a2a;
+    color: #aaa;
+    position: relative;
+    top: 0.2em;
+    box-shadow: 0 0 0 0.05em black;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10;
+}
+.active-overlay {
+    display: block;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 300px; /* Fixed width */
+    text-align: center;
+    border-radius: 5px;
+    vertical-align: middle;
+    overflow: visible; /* Ensures content isn't clipped */
+    box-sizing: border-box;
+    max-height: 90vh; /* Optional: to prevent modal from being too tall */
+    overflow-y: auto; /* Optional: allows scrolling if content overflows */
+}
+body::-webkit-scrollbar, .modal::-webkit-scrollbar {
+    display: none;
+}
+.active-modal {
+    display: block;
+}
+#modalCapslock {
+    height: 150px;
+}
+#modalCapslock>h2 {
+    margin-top: calc(100%/6);
+    vertical-align: middle;
+}
+#modalEnd>hr{
+    margin-top: 15px;
+}
+#modalEnd>p{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+/* Animations */
+@keyframes flip {
+    0% {
+        transform: rotateX(0);
+        background-color: var(--bg);
+        border-color: var(--borderSelected);
+    }
+
+    45% {
+        transform: rotateX(90deg);
+        background-color: var(--bg);
+        border-color: var(--borderSelected);
+    }
+
+    55% {
+        transform: rotateX(90deg);
+        background-color: var(--background-color);
+        border-color: var(--border-color)
+    }
+
+    100% {
+        transform: rotateX(0);
+        background-color: var(--background-color);
+        border-color: var(--border-color)
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+        border-color: var(--border);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        border-color: var(--borderSelected);
+    }
+}

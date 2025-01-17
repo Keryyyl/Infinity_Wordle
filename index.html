@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORDLE</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+</head>
+<body onload="CreateNumberOfGames();">
+    <header>
+        <div class="titleText">
+            WORDLE
+        </div>
+        <div class="addons">
+            <div class="restartMode">
+                <i class="material-icons md-32" onclick="resetGame()">refresh</i>
+            </div>
+            <div class="settings">
+                <i class="material-icons md-32" onclick="showHiddenChange()" id="visOn">visibility</i>
+                <i class="material-icons md-32" onclick="showHiddenChange()" id="visOff">visibility_off</i>
+            </div>
+            <div class="siteMode">
+                <i class="material-icons md-32 night-mode-toggle" id="ksiezyc">dark_mode</i>
+                <i class="material-icons md-32 night-mode-toggle" id="slonce">light_mode</i>
+            </div>
+        </div>
+    </header>
+    
+    <input type="text" name="input" id="input" onblur="this.focus()" autofocus autocomplete="off" maxlength="5">
+
+    <div id="wrapper">
+    </div>
+
+
+    <script src="src/scripts.js">
+    </script>
+</body>
+</html>
