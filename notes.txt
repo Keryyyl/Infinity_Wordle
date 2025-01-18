@@ -1,0 +1,5 @@
+Update ideas: 
+Keyboard onclick actually adds a letter
+Responsywność dla telefonów
+Dodanie przycisku który widoczny jest tylko na telefonie, umożliwia on wysłanie słowa
+Poprawić styl

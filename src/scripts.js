@@ -389,6 +389,7 @@ function createKeyboard(){
         button = document.createElement("div");
         button.classList.add("keyboard-button");
         button.setAttribute("data-char", letter);
+        button.setAttribute("data-game", letter.toLowerCase());
         button.innerHTML = letter;
         topRowDiv.appendChild(button);
     });
