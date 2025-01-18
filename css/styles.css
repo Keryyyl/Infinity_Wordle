@@ -173,6 +173,13 @@ text-align: center;
     align-items: center;
     bottom: 3rem;
 }
+
+@media only screen and (max-width: 576px){
+    #keyboard {display: none;}
+    #keyboard div {display: none;}
+    #midKeyboard {display: none;}
+    .keyboard-button {display: none;}
+}
     
 #keyboard div {
     display: flex;
