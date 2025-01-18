@@ -188,7 +188,7 @@ function addLetter(){
             });
         }
         // Checks and Accepts the word typed in input
-        else if (event1.key === "Enter" && checkLength() == 5){
+        else if ((event1.key === "Enter" || event1.keyCode == 13) && checkLength() == 5){
             if(ifWordinFile().then(found => {
                 if(found) {
                     ColorTheWord();
